@@ -1,6 +1,7 @@
-FROM osexp2000/gcc as builder
+FROM ubuntu:bionic as builder
 
-USER root
+RUN apt-get update && apt-get -y install build-essential gcc g++ gdb make \
+    automake autopoint libtool pkg-config bison gettext wget curl
 
 WORKDIR /src
 RUN wget 'https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/e2fsprogs/1.44.1-1ubuntu1.3/e2fsprogs_1.44.1.orig.tar.gz' -O - \
